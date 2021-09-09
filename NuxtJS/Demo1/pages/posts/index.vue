@@ -1,8 +1,18 @@
 <template>
    <div>
-    <Header/>
-    <PostContent/>
-    <h1>Hello post page</h1>
+       <h1>Hello post page</h1>
+    <b-container fluid>
+        <Header/>
+        <b-row class="py-3">
+            <PostContent/>
+            <PostContent/>
+            <PostContent/>
+        </b-row>
+    
+    
+    </b-container>
+    
+    
     
         
    </div>
