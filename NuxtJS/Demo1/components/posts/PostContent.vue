@@ -1,8 +1,8 @@
 <template>
-    <b-col>
-  <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
+    <b-col md="2">
+    <b-card
+    :title=title
+    :img-src=image
     img-alt="Image"
     img-top
     tag="article"
@@ -10,10 +10,33 @@
     class="mb-2"
   >
     <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
+      {{content}}
     </b-card-text>
 
     <b-button href="#" variant="primary">Go somewhere</b-button>
   </b-card>
 </b-col>
 </template>
+
+<script>
+export default {
+  props:{
+    id:{
+      type:String,
+      required:false
+    },
+    title:{
+      type:String,
+      required:false
+    },
+    content:{
+        type:String,
+        required:false
+    },
+    image:{
+      type:String,
+      required:false
+    }
+  }
+}
+</script>
