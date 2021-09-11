@@ -1,19 +1,29 @@
 <template>
     <div>
         <b-carousel id="slider" controls indicators>
-            <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+            <div v-for="item in items" v-bind:key="item.id">
+                <b-carousel-slide
+                :caption=item.caption
+                :text=item.text
+                :img-src=item.image
+              ></b-carousel-slide> 
+            </div>
         </b-carousel>
+
     </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      items : [
+        {caption:"A",image:"https://picsum.photos/1024/480/?image=51",text:"Nulla vitae elit libero, a pharetra augue mollis interdum."},
+        {caption:"B",image:"https://picsum.photos/1024/480/?image=52",text:"Nulla vitae elit libero, a pharetra augue mollis interdum."},
+        {caption:"C",image:"https://picsum.photos/1024/480/?image=53",text:"Nulla vitae elit libero, a pharetra augue mollis interdum."}
+
+      ]
+    }
+  },
+}
+</script>
