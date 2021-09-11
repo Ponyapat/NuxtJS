@@ -18,9 +18,9 @@ export default {
   data() {
     return {
       items : [
-        {caption:"A",image:"https://picsum.photos/1024/480/?image=51",text:"Nulla vitae elit libero, a pharetra augue mollis interdum."},
-        {caption:"B",image:"https://picsum.photos/1024/480/?image=52",text:"Nulla vitae elit libero, a pharetra augue mollis interdum."},
-        {caption:"C",image:"https://picsum.photos/1024/480/?image=53",text:"Nulla vitae elit libero, a pharetra augue mollis interdum."}
+        {caption:"A",image:require("@/asset/images/p1.jpg"),text:"Nulla vitae elit libero, a pharetra augue mollis interdum."},
+        {caption:"B",image:require("@/asset/images/p2.jpg"),text:"Nulla vitae elit libero, a pharetra augue mollis interdum."},
+        {caption:"C",image:require("@/asset/images/p3.jpg"),text:"Nulla vitae elit libero, a pharetra augue mollis interdum."}
 
       ]
     }
