@@ -1,13 +1,13 @@
 <template>
     <b-col md="2">
     <b-card
-    :title=title
-    :img-src=image
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
+      :title=title
+      :img-src=image
+      img-alt="Image"
+      img-top
+      tag="article"
+      style="max-width: 20rem;"
+      class="mb-2"
   >
     <b-card-text>
       {{content}}
