@@ -1,7 +1,8 @@
 <template>
     <div>
+        
         <h1>Hello admin page</h1>
-        <PostList/>
+        <PostList isAdmin/>
     </div>
 </template>
 

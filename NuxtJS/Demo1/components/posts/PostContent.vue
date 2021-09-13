@@ -12,6 +12,7 @@
     <b-card-text>
       {{content}}
     </b-card-text>
+    <nuxt-link class="btn btn-success" :to="postLink">อ่านบทความ</nuxt-link>
 
     <b-button href="#" variant="primary">Go somewhere</b-button>
   </b-card>
@@ -36,7 +37,18 @@ export default {
     image:{
       type:String,
       required:false
+    },
+    isAdmin:{
+      type:Boolean,
+      required:true
+    }
+  },
+  computed:{
+    postLink(){
+      return this.isAdmin ? '/admin/posts/'+this.id : '/posts/'+this.id
     }
   }
+
+
 }
 </script>
