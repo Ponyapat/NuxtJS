@@ -1,6 +1,6 @@
 <template>
    <div>
-       <h1>Hello post page</h1>
+       
     <b-container fluid>
         <Header/>
         <PostList />

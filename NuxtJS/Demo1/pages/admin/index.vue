@@ -1,16 +1,8 @@
 <template>
     <div>
         
-        <h1>Hello admin page</h1>
-        <PostList isAdmin/>
+        <nuxt-link to="/admin/posts" class="btn btn-primary">ดูบทความ</nuxt-link>
+        <nuxt-link to="/admin/posts/create" class="btn btn-success">เขียนบทความ</nuxt-link>
     </div>
 </template>
 
-<script>
-import PostList from "@/components/posts/PostList"
-export default {
-    components:{
-        PostList
-    }
-}
-</script>
