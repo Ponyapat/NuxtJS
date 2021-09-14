@@ -1,5 +1,6 @@
 <template>
-    <b-col md="2">
+    <b-col md="3">
+      <!--สร้างการ์ดcontent-->
     <b-card
       :title=title
       :img-src=image
@@ -38,13 +39,13 @@ export default {
       type:String,
       required:false
     },
-    isAdmin:{
+    isAdmin:{ //เช็คว่าผู้ใช้
       type:Boolean,
       required:true
     }
   },
   computed:{
-    postLink(){
+    postLink(){  //เลือกเส้นทางผู้ใช้
       return this.isAdmin ? '/admin/posts/'+this.id : '/posts/'+this.id
     }
   }

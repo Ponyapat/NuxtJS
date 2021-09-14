@@ -1,4 +1,5 @@
 <template>
+ <!-- Form กรอกข้อมูล -->
     <b-container fluid="md" class="py-2">
         <h2 align="center">เขียนบทความ</h2>
         <b-form @submit="onSumbit" @reset="onReset">
@@ -26,6 +27,7 @@
             <b-button type="submit" variant="primary">บันทึก</b-button>
             <b-button type="reset" variant="danger">ล้าง</b-button>
         </b-form>
+        <!--แสดงผลลัพธ์การกรอก-->
         <b-card header="result">
             {{form}}
         </b-card>
@@ -34,7 +36,7 @@
 
 <script>
 export default {
-    data() {
+    data() { //รับค่า
        return {
            form:{
                name:"",
@@ -44,7 +46,7 @@ export default {
            }
        }
     },
-    methods:{
+    methods:{ //การทำงาน
         onSumbit(event){
             event.preventDefault();
             console.log(this.form);

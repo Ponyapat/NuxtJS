@@ -1,5 +1,6 @@
 <template>
     <div>
+      <!--สร้างรูปภาพแบบเลื่อน-->
         <b-carousel id="slider" controls indicators>
             <div v-for="item in items" v-bind:key="item.id">
                 <b-carousel-slide

@@ -1,6 +1,6 @@
 <template>
-    
-    <AdminForm />
+    <!--เรียนกใช้Form-->
+    <AdminForm /> 
     
 </template>
 
