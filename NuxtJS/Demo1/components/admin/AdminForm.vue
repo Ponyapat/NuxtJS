@@ -1,7 +1,7 @@
 <template>
     <b-container fluid="md" class="py-2">
         <h2 align="center">เขียนบทความ</h2>
-        <b-form>
+        <b-form @submit="onSumbit" @reset="onReset">
             <b-form-group label="ชื่อบทความ">
                 <b-form-input type="text" placeholder="ระบุชื่อบทความ" v-model="form.name">
                 </b-form-input>
@@ -43,6 +43,19 @@ export default {
                author:""
            }
        }
+    },
+    methods:{
+        onSumbit(event){
+            event.preventDefault();
+            console.log(this.form);
+        },
+        onReset(event){
+            event.preventDefault();
+            this.form.name="",
+            this.form.content="",
+            this.form.image="",
+            this.form.author=""
+        }
     }
 }
 </script>
