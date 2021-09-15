@@ -10,7 +10,7 @@
 
             <b-form-group label="รายละเอียดบทความ">
                 <b-form-textarea 
-                placehoder="รายละเอียดบทความ"
+                placeholder="รายละเอียดบทความ"
                 row=8
                 v-model="form.content"></b-form-textarea>
             </b-form-group>
@@ -39,7 +39,7 @@ export default {
     data() { //รับค่า
        return {
            form:{
-               name:"",
+               title:"",
                content:"",
                image:"",
                author:""
@@ -48,12 +48,13 @@ export default {
     },
     methods:{ //การทำงาน
         onSumbit(event){
-            event.preventDefault();
-            console.log(this.form);
+            event.preventDefault(); 
+            this.$emit('sendData',this.form)
+            //console.log(this.form);
         },
         onReset(event){
             event.preventDefault();
-            this.form.name="",
+            this.form.title="",
             this.form.content="",
             this.form.image="",
             this.form.author=""
