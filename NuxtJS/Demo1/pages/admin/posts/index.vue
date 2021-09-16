@@ -1,7 +1,6 @@
 <template>
     <div>
-        
-        <h1>Hello admin page</h1>
+         
         <!--เรียกข้อมูลจากloadDataมาแสดง-->
         <PostList isAdmin :posts="loadData"/>
         <b-button @click="postsAll">Load...</b-button>
@@ -21,12 +20,14 @@ export default {
             loadData:[]
         }
     },
-    method:{
-        postsAll(){
-            axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
+    methods:{
+        async postsAll(){
+            console.log("Start Load Data");
+            await axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/post.json")
             .then(res=>{
                 console.log(res);
             })
+            console.log("Load Data Success");
         }
     }
 }
