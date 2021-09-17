@@ -2,9 +2,9 @@
  <!-- Form กรอกข้อมูล -->
     <b-container fluid="md" class="py-2">
         <h2 align="center">เขียนบทความ</h2>
-        <b-form @submit="onSumbit" @reset="onReset">
+        <b-form @submit.prevent="onSumbit" @reset="onReset">
             <b-form-group label="ชื่อบทความ">
-                <b-form-input type="text" placeholder="ระบุชื่อบทความ" v-model="form.name">
+                <b-form-input type="text" placeholder="ระบุชื่อบทความ" v-model="form.title">
                 </b-form-input>
             </b-form-group>
 
@@ -48,9 +48,10 @@ export default {
     },
     methods:{ //การทำงาน
         onSumbit(event){
-            event.preventDefault(); 
+            // event.preventDefault(); 
             this.$emit('sendData',this.form)
             //console.log(this.form);
+            this.$router.push('/admin/posts')
         },
         onReset(event){
             event.preventDefault();

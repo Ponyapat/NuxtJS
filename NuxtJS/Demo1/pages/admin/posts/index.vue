@@ -3,7 +3,7 @@
          
         <!--เรียกข้อมูลจากloadDataมาแสดง-->
         <PostList isAdmin :posts="loadData"/>
-        <b-button @click="postsAll">Load...</b-button>
+        
 
     </div>
 </template>
@@ -20,26 +20,42 @@ export default {
             loadData:[]
         }
     },
-    methods:{
-        
-        async postsAll(){
-            console.log("click");
-            await this.getData().then((result)=>{
-                console.log(result);
-            })
-            console.log("load complete")
-        },
-        getData(){
-            return new Promise((resolve,reject)=>{
-                setTimeout(()=>{
-                    const data = axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/post.json")
-                    .then(res=>{
-                        return res
-                    })
-                    resolve(data)
-                },4000)
-            })
-        }
+    asyncData(context){
+        return axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
+        .then(res=>{
+            //ดึงข้อมูลจาก firebaseมาใส่ใน array ตาม key ที่ต่างกัน
+            const data = [];
+            for(const key in res.data){
+                data.push({...res.data[key],id:key})
+            }
+            return {
+                loadData:data
+            }
+        });
     }
+    
 }
 </script>
+
+
+// methods:{
+        
+    //     async postsAll(){
+    //         console.log("click");
+    //         await this.getData().then((result)=>{
+    //             console.log(result);
+    //         })
+    //         console.log("load complete")
+    //     },
+    //     getData(){
+    //         return new Promise((resolve,reject)=>{
+    //             setTimeout(()=>{
+    //                 const data = axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/post.json")
+    //                 .then(res=>{
+    //                     return res
+    //                 })
+    //                 resolve(data)
+    //             },4000)
+    //         })
+    //     }
+    // }
