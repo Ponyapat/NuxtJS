@@ -21,13 +21,24 @@ export default {
         }
     },
     methods:{
+        
         async postsAll(){
-            console.log("Start Load Data");
-            await axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/post.json")
-            .then(res=>{
-                console.log(res);
+            console.log("click");
+            await this.getData().then((result)=>{
+                console.log(result);
             })
-            console.log("Load Data Success");
+            console.log("load complete")
+        },
+        getData(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    const data = axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/post.json")
+                    .then(res=>{
+                        return res
+                    })
+                    resolve(data)
+                },4000)
+            })
         }
     }
 }
