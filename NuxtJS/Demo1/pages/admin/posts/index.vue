@@ -21,17 +21,33 @@ export default {
         }
     },
     asyncData(context){
-        return axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
-        .then(res=>{
-            //ดึงข้อมูลจาก firebaseมาใส่ใน array ตาม key ที่ต่างกัน
-            const data = [];
-            for(const key in res.data){
-                data.push({...res.data[key],id:key})
-            }
-            return {
-                loadData:data
-            }
-        });
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                const data = axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
+                .then(res=>{
+                    const postData=[];
+                    for(const key in res.data){
+                        postData.push({...res.data[key],id:key})
+                }
+                 return {
+                 loadData:postData
+                 }
+             })
+             resolve(data)
+                })
+            },4000);
+        
+        // return axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
+        // .then(res=>{
+        //     //ดึงข้อมูลจาก firebaseมาใส่ใน array ตาม key ที่ต่างกัน
+        //     const data = [];
+        //     for(const key in res.data){
+        //         data.push({...res.data[key],id:key})
+        //     }
+        //     return {
+        //         loadData:data
+        //     }
+        // });
     }
     
 }
