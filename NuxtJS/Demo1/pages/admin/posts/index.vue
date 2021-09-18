@@ -15,27 +15,35 @@ export default {
     components:{
         PostList
     },
-    data() { //ข้อมูลที่ต้องการแสดง
-        return {
-            loadData:[]
+    computed:{ 
+        loadData(){
+            return this.$store.getters.getAllPosts
         }
-    },
-    asyncData(context){
-        return new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                const data = axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
-                .then(res=>{
-                    const postData=[];
-                    for(const key in res.data){
-                        postData.push({...res.data[key],id:key})
-                }
-                 return {
-                 loadData:postData
-                 }
-             })
-             resolve(data)
-                })
-            },4000);
+    }
+}
+</script>
+
+    // data() { //ข้อมูลที่ต้องการแสดง
+    //     return {
+    //         loadData:[]
+    //     }
+    // },
+    // asyncData(context){
+    //     return new Promise((resolve,reject)=>{
+    //         setTimeout(()=>{
+    //             const data = axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
+    //             .then(res=>{
+    //                 const postData=[];
+    //                 for(const key in res.data){
+    //                     postData.push({...res.data[key],id:key})
+    //             }
+    //              return {
+    //              loadData:postData
+    //              }
+    //          })
+    //          resolve(data)
+    //             })
+    //         },4000);
         
         // return axios.get("https://nuxt-demo-7a77c-default-rtdb.firebaseio.com/posts.json")
         // .then(res=>{
@@ -48,10 +56,7 @@ export default {
         //         loadData:data
         //     }
         // });
-    }
-    
-}
-</script>
+  
 
 
 // methods:{
